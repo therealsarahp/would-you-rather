@@ -21,7 +21,7 @@ export function handleInitialData(){
         dispatch(showLoading())
         return Promise.all([
             _getUsers(), _getQuestions()
-        ]).then(([users, questions])=> {
+        ]).then(({users, questions})=> {
             dispatch(receiveData(users, questions))
             dispatch(setAuthUser(AUTH_USERID))
             dispatch(hideLoading())

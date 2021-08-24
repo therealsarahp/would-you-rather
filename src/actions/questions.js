@@ -1,7 +1,10 @@
-export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
+export const ADD_QUESTION = "ADD_QUESTION";
+export const ANSWER_QUESTION = "ANSWER_QUESTION";
 
-export function receiveQuestions(questions){
+export function addQuestion(question){
     return{
-        type: RECEIVE_QUESTIONS, questions
+        type: ADD_QUESTION,
+        question,
     }
 }
+

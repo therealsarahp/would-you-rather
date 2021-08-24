@@ -1,7 +1,7 @@
-export const SET_AUTHUSER= "SET_AUTHUSER";
+export const SET_AUTH_USER= "SET_AUTH_USER";
 
 export function setAuthUser (id){
     return {
-        type: SET_AUTHUSER, id
+        type: SET_AUTH_USER, id
     }
 }
