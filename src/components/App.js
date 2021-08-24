@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading";
+import Login from "./Login";
 
 
 
@@ -15,12 +16,13 @@ class App extends Component {
     }
 
     render() {
-    console.log(this.props)
     return (
         <div className="App">
             <LoadingBar />
             {this.props.loading === true
-            ? null : <div>APP</div>}
+            ? null : <div>APP
+
+            </div>}
         </div>
     );
   }
