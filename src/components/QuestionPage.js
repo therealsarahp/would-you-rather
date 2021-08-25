@@ -5,18 +5,27 @@ import {handleAnswerQuestion} from "../actions/shared";
 
 class QuestionPage extends Component{
 
+    state= {
+        answer: '',
+    }
+
     handleClick=(e)=>{
         e.preventDefault();
 
         const { dispatch, question, authUser } = this.props
 
-        const answer = e.target.value;
-
-        dispatch(handleAnswerQuestion({
+        // Promise.all(
+        //     this.setState(()=>({
+        //     answer: e.target.value,
+        // }))).then(
+        let answer = e.target.value
+            dispatch(handleAnswerQuestion({
             id: question.id,
             authUser,
             answer,
         }))
+            // ))
+
 
         //answering the quesiton needs to change values in option.votes and in users.answers
 
