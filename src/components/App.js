@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading";
 // import Login from "./Login";
 import Dashboard from "./Dashboard";
+import QuestionPage from "./QuestionPage";
 
 
 
@@ -21,7 +22,7 @@ class App extends Component {
             <LoadingBar />
             {this.props.loading === true
             ? null : <div className="container">
-                    <Dashboard />
+                    <QuestionPage match={{params: {id:'8xf0y6ziyjabvozdd253nd'}}}/>
 
             </div>}
         </div>
