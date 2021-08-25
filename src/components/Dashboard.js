@@ -17,7 +17,7 @@ class Dashboard extends Component{
 
 
     render() {
-        const { questionIds, questions, users} = this.props;
+        const { questions } = this.props;
 
         let showingQuestions = this.state.value === "noVotes" ?
             Object.values(questions).filter((question) => question.optionOne.votes.length === 0 && question.optionTwo.votes.length === 0)
@@ -45,12 +45,6 @@ class Dashboard extends Component{
                         </li>
                     ))}
 
-
-                    {/*{questionIds.map((id)=> (*/}
-                    {/*            <li key={id}>*/}
-                    {/*                <Question id={id}/>*/}
-                    {/*            </li>*/}
-                    {/*))}*/}
                 </ul>
 
             </div>
@@ -64,9 +58,9 @@ function mapStateToProps({ questions, authUser, users }){
     return{
         authUser,
         questions,
-        users,
-        questionIds: Object.keys(questions)
-            .sort((a,b)=> questions[b].timestamp - questions[a].timestamp)
+        // users,
+        // questionIds: Object.keys(questions)
+        //     .sort((a,b)=> questions[b].timestamp - questions[a].timestamp)
 
     }
 }

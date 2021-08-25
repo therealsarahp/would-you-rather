@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Question from "./Question";
+import {handleAnswerQuestion} from "../actions/questions";
 
 class QuestionPage extends Component{
 
@@ -8,6 +9,14 @@ class QuestionPage extends Component{
         e.preventDefault();
 
         const { dispatch, question, authUser } = this.props
+
+        const answer = e.target.value;
+
+        dispatch(handleAnswerQuestion({
+            id: question.id,
+            authUser,
+            answer,
+        }))
 
 
     }
