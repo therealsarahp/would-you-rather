@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Question from "./Question";
-import {handleAnswerQuestion} from "../actions/questions";
+import {handleAnswerQuestion} from "../actions/shared";
 
 class QuestionPage extends Component{
 
@@ -18,6 +18,7 @@ class QuestionPage extends Component{
             answer,
         }))
 
+        //answering the quesiton needs to change values in option.votes and in users.answers
 
     }
 
