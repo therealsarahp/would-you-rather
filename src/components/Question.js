@@ -6,16 +6,21 @@ class Question extends Component{
     render() {
         const { id, question, users} = this.props
         const { timestamp, author, optionOne, optionTwo } = question
-        console.log(question)
         return(
             <div  className="question-list-item">
                 <img
                     className='avatar'
                     src={users[author].avatarURL}
-                    alt={`Avatar of ${author}`}/>
+                    alt={`Avatar of ${author}`}
+                    />
             <div className="question-details">
+                <span>{users[author].name} Asks...</span>
                 <h3> WOULD YOU RATHER...</h3>
-               <p> Question Text: {optionOne.text} OR {optionTwo.text}</p>
+               <p className="center">{optionOne.text} OR {optionTwo.text}</p>
+
+                {/*//todo: add optional values and displays for "no-votes" vs. "votes";
+                if(optionOne.votes.length > 0 && optionTwo.votes.length > 0){
+                 etc..... */}
             </div>
             </div>
         )

@@ -87,3 +87,8 @@ li {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.question-details span {
+    color: #969696;
+    font-size: 15px;
+}
