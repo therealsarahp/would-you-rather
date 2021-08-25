@@ -20,8 +20,6 @@ export default function questions (state=[], action){
                         ...action.id.answer,
                     votes: state[action.id][action.answer].votes.concat([action.authUser])
                 }
-
-
         }
             }
         default :

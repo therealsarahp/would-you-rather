@@ -7,7 +7,7 @@ import {_getQuestions, _getUsers, _saveQuestionAnswer} from "../utils/_DATA";
 export const RECEIVE_DATA = "RECEIVE_DATA";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
 
-export function receiveData(users, questions){
+function receiveData(users, questions){
     return{
         type: RECEIVE_DATA,
         users,
