@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading";
-import Login from "./Login";
+// import Login from "./Login";
 import Dashboard from "./Dashboard";
 
 

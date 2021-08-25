@@ -1,31 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Question from "./Question";
 
 class Dashboard extends Component{
     render() {
         const { questionIds, questions, users} = this.props;
+
+        // const { id, author, timestamp, optionOne, optionTwo } = questions
 
         return(
             <div>
                 <h3 className='center'>Dashboard</h3>
                 <ul className='question-list'>
                     {questionIds.map((id)=> (
-                        <li key={id} className="question-list-item">
-                            <img
-                                className='avatar'
-                                src={users[questions[id].author].avatarURL}
-                                alt={`Avatar of ${users[questions[id].author]}`}/>
-                            {/*find a better way to access these bits of information*/}
-                            Question Id: {id}
-                        </li>
-                        )
-                    )}
+                                <li key={id}>
+                                    <Question id={id}/>
+                                </li>
+                    ))}
                 </ul>
 
             </div>
         )
     }
 }
+
+
 
 function mapStateToProps({ questions, authUser, users }){
     return{
