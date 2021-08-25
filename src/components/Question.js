@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { formatQuestion } from "../utils/_DATA";
+import { formatDate } from "../utils/_DATA";
 
 class Question extends Component{
     render() {
         const { id, question, users} = this.props
+
+        if(question === null){
+            return <p>No Question To Show</p>
+        }
+
         const { timestamp, author, optionOne, optionTwo } = question
         return(
             <div  className="question-list-item">
+                {formatDate(timestamp)}
                 <img
                     className='avatar'
                     src={users[author].avatarURL}
@@ -33,7 +40,7 @@ function mapStateToProps({ authedUser, users, questions }, { id }){
     return{
         users,
         authedUser,
-        question : question
+        question : question ? question : null
             // ? formatQuestion(question)
             // : null
     }
