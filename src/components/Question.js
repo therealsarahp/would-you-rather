@@ -8,13 +8,13 @@ class Question extends Component{
         const { id, question, users} = this.props
 
         if(question === null){
-            return <p>No Question To Show</p>
+            return <p>No Questions To Show</p>
         }
 
         const { timestamp, author, optionOne, optionTwo } = question
         return(
             <div  className="question-list-item">
-                {formatDate(timestamp)}
+                {/*{formatDate(timestamp)}*/}
                 <img
                     className='avatar'
                     src={users[author].avatarURL}

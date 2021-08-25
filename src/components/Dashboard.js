@@ -18,13 +18,10 @@ class Dashboard extends Component{
 
     render() {
         const { questionIds, questions, users} = this.props;
-        console.log(this.state.value)
 
         let showingQuestions = this.state.value === "noVotes" ?
             Object.values(questions).filter((question) => question.optionOne.votes.length === 0 && question.optionTwo.votes.length === 0)
             : Object.values(questions).filter((question)=>question.optionOne.votes.length >0 || question.optionTwo.votes.length >0)
-
-        console.log("value of showingQuestions", showingQuestions)
 
         showingQuestions.length > 0
         ? showingQuestions.sort((a,b)=> b.timestamp - a.timestamp)
@@ -42,8 +39,8 @@ class Dashboard extends Component{
                  >Unanswered</button>
 
                 <ul className='question-list'>
-                    {showingQuestions.map((question)=>(
-                        <li key={question.id}>
+                    {showingQuestions.map((question, index)=>(
+                        <li key={index}>
                             <Question id={question.id}/>
                         </li>
                     ))}
