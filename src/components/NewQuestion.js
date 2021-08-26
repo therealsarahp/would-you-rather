@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
+import {handleAddQuestion} from "../actions/shared";
 
 class NewQuestion extends Component{
     state={
@@ -9,15 +10,30 @@ class NewQuestion extends Component{
 
     handleChange=(e)=>{
         e.preventDefault()
+        const option = e.target.name
+
+
+        this.setState(()=>({
+                [option]: e.target.value
+            })
+        )
     }
 
     handleSubmit=(e)=>{
         e.preventDefault()
+
+        const { optionOne, optionTwo } = this.state
+        const { authUser, dispatch } = this.props
+
+        dispatch(handleAddQuestion({
+            optionOneText: optionOne,
+            optionTwoText: optionTwo,
+            author: authUser
+        }))
     }
 
     render() {
         const { optionOne, optionTwo } = this.state
-
         return(
             <div>
                 <h3 className="center">Ask A New Question</h3>
@@ -30,6 +46,7 @@ class NewQuestion extends Component{
                         className='textarea'
                         maxLength={280}
                         id="text1"
+                        name="optionOne"
                     />
                     <label for="text2">Option Two</label>
                     <textarea
@@ -39,6 +56,7 @@ class NewQuestion extends Component{
                         className='textarea'
                         maxLength={280}
                         id='text2'
+                        name="optionTwo"
                     />
                     <button
                         className='btn'
@@ -53,7 +71,9 @@ class NewQuestion extends Component{
 }
 
 function mapStateToProps({authUser}){
-
+    return{
+        authUser
+    }
 }
 
 export default connect(mapStateToProps)(NewQuestion)

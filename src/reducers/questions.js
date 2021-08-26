@@ -1,6 +1,3 @@
-import {
-    ADD_QUESTION,
-} from "../actions/questions";
 
 import { RECEIVE_DATA, ANSWER_QUESTION } from "../actions/shared";
 

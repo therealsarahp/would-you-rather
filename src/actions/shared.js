@@ -1,11 +1,10 @@
-// import { receiveQuestions} from "./questions";
-// import { receiveUsers } from './users';
 import { setAuthUser } from "./authUser";
 import { showLoading, hideLoading } from "react-redux-loading";
-import {_getQuestions, _getUsers, _saveQuestionAnswer} from "../utils/_DATA";
+import {_getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer} from "../utils/_DATA";
 
 export const RECEIVE_DATA = "RECEIVE_DATA";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
+export const ADD_QUESTION = "ADD_QUESTION";
 
 function receiveData(users, questions){
     return{
@@ -21,6 +20,12 @@ function answerQuestion({ authUser, id, answer }){
         authUser,
         id,
         answer
+    }
+}
+function addQuestion(question){
+    return{
+        type: ADD_QUESTION,
+        question,
     }
 }
 
@@ -50,6 +55,18 @@ export function handleAnswerQuestion(info){
             .catch((e)=>{
                 console.warn('Error in handleSaveAnswer: ', e)
                 dispatch(answerQuestion(info))
+                alert('There was an error saving that answer. Try Again')
+            })
+    }
+}
+
+export function handleAddQuestion(question){
+    return (dispatch)=> {
+        addQuestion(question);
+        return _saveQuestion(question)
+            .catch((e)=>{
+                console.warn('Error in handleSaveAnswer: ', e)
+                dispatch(addQuestion(question))
                 alert('There was an error saving that answer. Try Again')
             })
     }
