@@ -18,9 +18,25 @@ class QuestionPage extends Component{
             answer,
         }))
 
-        //answering the quesiton needs to change values in option.votes and in users.answers
+        this.hasAnswered();
 
     }
+
+    hasAnswered=()=>{
+
+        const { users, authUser, question } = this.props
+        let hasAnswer;
+
+        if(Object.keys(users[authUser].answers).includes(question.id)){
+            hasAnswer = true
+            return hasAnswer
+        }
+        else{
+            hasAnswer = false
+            return hasAnswer
+        }
+        return hasAnswer
+        }
 
     render() {
         const { id, question, authUser } = this.props
@@ -28,14 +44,21 @@ class QuestionPage extends Component{
             <div className="question-page">
                 Question Page
                 <Question id={id}/>
-                <button
+                <button className={this.hasAnswered() === true ? 'disabled' : 'qpb'}
                     value="optionOne"
                     onClick={this.handleClick}
+                    disabled={this.hasAnswered() === true}
                 >{question.optionOne.text}</button>
-                <button
+                <button className={this.hasAnswered() === true ? 'disabled' : 'qpb'}
                     value="optionTwo"
                     onClick={this.handleClick}
+                    disabled={this.hasAnswered() === true}
                 >{question.optionTwo.text}</button>
+                {this.hasAnswered()=== true &&
+                <div>
+                this will be aprogres bar type thing
+                </div>
+                }
             </div>
 
         )
