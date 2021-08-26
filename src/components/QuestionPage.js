@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Question from "./Question";
 import {handleAnswerQuestion} from "../actions/shared";
+import { TiStarburst } from 'react-icons/all';
 
 
 class QuestionPage extends Component{
@@ -56,33 +57,45 @@ class QuestionPage extends Component{
 
         return(
             <div className="question-page">
-                <div>
-                Question Page
                 <Question id={id}/>
-                <button className={this.hasAnswered() === true ? 'disabled' : 'qpb'}
-                    value="optionOne"
-                    onClick={this.handleClick}
-                    disabled={this.hasAnswered() === true}
-                >{optionOne.text}</button>
-                <button className={this.hasAnswered() === true ? 'disabled' : 'qpb'}
-                    value="optionTwo"
-                    onClick={this.handleClick}
-                    disabled={this.hasAnswered() === true}
-                >{optionTwo.text}</button>
-                </div>
+                <div className="options">
+                        <div className="optionOne">
+                            {yourVote === 'optionOne' && <TiStarburst className="icon"/>}
+                            <button className={this.hasAnswered() === true ? 'disabled' : 'qpb'}
+                                value="optionOne"
+                                onClick={this.handleClick}
+                                disabled={this.hasAnswered() === true}>
+                        {optionOne.text}
+                            </button>
+                    </div>
+                        <div className="optionTwo">
+                            {yourVote === 'optionTwo' && <TiStarburst className="icon"/>}
+                            <button className={this.hasAnswered() === true ? 'disabled' : 'qpb'}
+                                value="optionTwo"
+                                onClick={this.handleClick}
+                                disabled={this.hasAnswered() === true}
+                            >{optionTwo.text}
+                            </button>
+                        </div>
+                    </div>
                 <div>
+
                 {this.hasAnswered()=== true &&
                 <div className="votesSection">
-                    <div className="progressBar">
-                        <span style={{ width: `${votes(optionOne)}%` }}>
-                            {votes(optionOne)}%
-                        </span>
+                    <div className="optionOne">
+                        <div className="progressBar">
+                            <span style={{ width: `${votes(optionOne)}%` }}>
+                                {votes(optionOne)}%
+                            </span>
+                         </div>
                         <p>{optionOneVotes.length} Votes of {totalVotes}</p>
-                     </div>
-                    <div className="progressBar">
-                        <span style={{ width: `${votes(optionTwo)}%` }}>
-                            {votes(optionTwo)}%
-                        </span>
+                    </div>
+                    <div className="optionTwo">
+                        <div className="progressBar">
+                            <span style={{ width: `${votes(optionTwo)}%` }}>
+                                {votes(optionTwo)}%
+                            </span>
+                        </div>
                         <p>{optionTwoVotes.length} Votes of {totalVotes}</p>
                     </div>
                 </div>
