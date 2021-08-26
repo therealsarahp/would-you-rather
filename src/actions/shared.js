@@ -43,7 +43,10 @@ export function handleInitialData(){
 export function handleAnswerQuestion(info){
     return(dispatch) => {
         dispatch(answerQuestion(info));
-        return _saveQuestionAnswer(info)
+        return _saveQuestionAnswer({
+                                    qid: info.id,
+                                    authedUser: info.authUser,
+                                    answer: info.answer})
             .catch((e)=>{
                 console.warn('Error in handleSaveAnswer: ', e)
                 dispatch(answerQuestion(info))
