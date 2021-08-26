@@ -176,3 +176,19 @@ li {
     color: white;
 }
 
+.new-question{
+    width: 50%;
+    max-width: 590px;
+    margin: 0 auto;
+    flex-direction: row;
+    text-align: center;
+}
+
+.textarea {
+    border-radius: 4px;
+    border: 1px solid #dad7d7;
+    padding: 10px;
+    font-size: 15px;
+    height: 100px;
+    display: inline;
+}
