@@ -38,29 +38,31 @@ class NewQuestion extends Component{
     render() {
         const { optionOne, optionTwo } = this.state
         return(
-            <div>
+            <div className="new-question-page">
                 <h3 className="center">Ask A New Question</h3>
                 <form className='new-question' onSubmit={this.handleSubmit}>
-                    <label for="text1">Option One</label>
-                    <textarea
-                        placeholder="Would you..."
-                        value={optionOne}
-                        onChange={this.handleChange}
-                        className='textarea'
-                        maxLength={280}
-                        id="text1"
-                        name="optionOne"
-                    />
-                    <label for="text2">Option Two</label>
-                    <textarea
-                        placeholder="Would you... "
-                        value={optionTwo}
-                        onChange={this.handleChange}
-                        className='textarea'
-                        maxLength={280}
-                        id='text2'
-                        name="optionTwo"
-                    />
+                   <div className="optionOneText">
+                        <label htmlFor="text1">Option One</label>
+                        <textarea
+                            placeholder="Would you..."
+                            value={optionOne}
+                            onChange={this.handleChange}
+                            maxLength={280}
+                            id="text1"
+                            name="optionOne"
+                        />
+                    </div>
+                    <div className="optionTwoText">
+                        <label for="text2">Option Two</label>
+                        <textarea
+                            placeholder="Would you... "
+                            value={optionTwo}
+                            onChange={this.handleChange}
+                            maxLength={280}
+                            id='text2'
+                            name="optionTwo"
+                        />
+                    </div>
                     <button
                         onSubmit={this.handleSubmit}
                         className='btn'

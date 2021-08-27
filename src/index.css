@@ -177,22 +177,44 @@ li {
 
 /*NewQuestion*/
 
-.new-question{
-    width: 50%;
-    max-width: 590px;
-    margin: 0 auto;
-    flex-direction: row;
+.new-question-page{
+    margin:25px;
     text-align: center;
+    border: 1px solid #dad7d7;
 }
 
-.textarea {
+.new-question-page button {
+    margin-bottom: 50px;
+}
+
+.new-question{
+    /*width: 100%;*/
+    /*margin: 0 auto;*/
+    /*flex-direction: row;*/
+    /*text-align: center;*/
+}
+
+textarea {
     border-radius: 4px;
     border: 1px solid #dad7d7;
     padding: 10px;
     font-size: 15px;
     height: 100px;
-    display: inline;
+    width: 100%;
+
 }
+
+.optionOneText{
+    display: inline-block;
+    margin: 75px;
+}
+
+.optionTwoText{
+    display: inline-block;
+    margin: 75px;
+}
+
+
 
 /*Nav*/
 
