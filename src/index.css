@@ -200,15 +200,27 @@ li {
     font-weight: bold;
 }
 
-.nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    text-decoration: none;
+.nav{
+    padding: 10px;
+
 }
 
-.nav li:first-child {
-    padding-left: 0;
+
+.nav li {
+    display: inline-block;
+}
+
+.nav-left{
+    display: inline-block;
+}
+
+.nav-right{
+    display: inline-block;
+    float: right;
+}
+
+.nav-right span{
+    margin: 10px;
 }
 
 /*leaderboard components*/
@@ -224,6 +236,7 @@ li {
     display: flex;
     border: 1px solid #dad7d7;
     border-radius: 3px;
+    margin: 25px;
 }
 
 .leaders-details{
