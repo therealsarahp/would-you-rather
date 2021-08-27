@@ -40,6 +40,7 @@ class NewQuestion extends Component{
         return(
             <div className="new-question-page">
                 <h3 className="center">Ask A New Question</h3>
+                <h3 className="center">Would You Rather...</h3>
                 <form className='new-question' onSubmit={this.handleSubmit}>
                    <div className="optionOneText">
                         <label htmlFor="text1">Option One</label>
@@ -65,7 +66,7 @@ class NewQuestion extends Component{
                     </div>
                     <button
                         onSubmit={this.handleSubmit}
-                        className='btn'
+                        className='center'
                         type='submit'
                         disabled={optionOne === '' && optionTwo === ''}>
                         SUBMIT

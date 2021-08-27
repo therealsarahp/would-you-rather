@@ -29,14 +29,17 @@ class Dashboard extends Component{
         : showingQuestions = [0]
 
         return(
-            <div>
+            <div style={{ border: "1px solid black"}}>
                 <h3 className='center'>Dashboard</h3>
                 <button
                     value="votes"
-                    onClick={this.handleClick}>Answered</button>
+                    onClick={this.handleClick}
+                    className='dash-btn center'
+                >Answered</button>
                 <button
                     value="noVotes"
                     onClick={this.handleClick}
+                    className='dash-btn center'
                  >Unanswered</button>
 
                 <ul className='question-list'>

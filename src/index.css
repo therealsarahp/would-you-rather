@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: serif;
     color: #252525;
 }
 
@@ -47,6 +47,20 @@ li {
 }
 
 /*dashboard and question componenet*/
+
+.dash-btn{
+    border: 1px solid black;
+    padding: 0.25em 0.75em;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 50px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+}
 
 .question-list {
     width: 100%;
