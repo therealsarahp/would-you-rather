@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
+import { GiLaurelsTrophy } from "react-icons/gi"
 
 class Leaderboard extends Component{
     render() {
@@ -17,6 +18,9 @@ class Leaderboard extends Component{
                 <ul>
                 {usersArr.map((user, index)=>(
                     <li key={index} className="leaders">
+                        {index === 0 && <GiLaurelsTrophy style={{ color: "#C9B037" , 'font-size': "45px" }} />}
+                        {index === 1 && <GiLaurelsTrophy style={{ color: "#B4B4B4", 'font-size': "35px" }} />}
+                        {index === 2 && <GiLaurelsTrophy style={{ color: "#6A3805", 'font-size': "25px" }} />}
                         <img
                             className='avatar'
                             src={user.avatarURL}
@@ -26,6 +30,10 @@ class Leaderboard extends Component{
                             <p className='center'>{user.name}</p>
                             <p>Questions Asked: {user.questions.length}</p>
                             <p>Questions Answered: {Object.keys(user.answers).length}</p>
+
+                            <div>
+                                <p className="score"><span>SCORE: {user.questions.length + Object.keys(user.answers).length}</span></p>
+                            </div>
                         </div>
                     </li>
                 ))}

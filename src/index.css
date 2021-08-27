@@ -280,3 +280,9 @@ textarea {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.score{
+    float: right;
+    padding: 15px;
+}
+
