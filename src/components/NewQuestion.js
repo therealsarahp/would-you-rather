@@ -26,10 +26,9 @@ class NewQuestion extends Component{
         const { authUser, dispatch } = this.props
 
         dispatch(handleAddQuestion({
-            optionOneText: optionOne,
-            optionTwoText: optionTwo,
-            author: authUser
+            optionOne, optionTwo, authUser
         }))
+        console.log("handleSubmit is working")
     }
 
     render() {
@@ -59,6 +58,7 @@ class NewQuestion extends Component{
                         name="optionTwo"
                     />
                     <button
+                        onSubmit={this.handleSubmit}
                         className='btn'
                         type='submit'
                         disabled={optionOne === '' && optionTwo === ''}>

@@ -1,5 +1,5 @@
 
-import { RECEIVE_DATA, ANSWER_QUESTION } from "../actions/shared";
+import { RECEIVE_DATA, ANSWER_QUESTION, ADD_QUESTION } from "../actions/shared";
 
 export default function questions (state=[], action){
     switch(action.type){
@@ -19,6 +19,13 @@ export default function questions (state=[], action){
 
                 }
         }
+            }
+        case ADD_QUESTION:
+            const { question } = action
+            return{
+                ...state,
+                [action.question.id]: action.question
+
             }
         default :
             return state

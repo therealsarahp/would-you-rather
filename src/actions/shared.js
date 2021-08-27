@@ -25,7 +25,7 @@ function answerQuestion({ authUser, id, answer }){
 function addQuestion(question){
     return{
         type: ADD_QUESTION,
-        question,
+        question
     }
 }
 
@@ -62,12 +62,21 @@ export function handleAnswerQuestion(info){
 
 export function handleAddQuestion(question){
     return (dispatch)=> {
-        addQuestion(question);
-        return _saveQuestion(question)
-            .catch((e)=>{
-                console.warn('Error in handleSaveAnswer: ', e)
-                dispatch(addQuestion(question))
-                alert('There was an error saving that answer. Try Again')
-            })
+
+        dispatch(showLoading())
+
+        return _saveQuestion({
+            optionOneText: question.optionOne,
+            optionTwoText: question.optionTwo,
+            author: question.authUser
+        }
+        )
+            .then((question)=> dispatch(addQuestion(question)))
+            .then(dispatch(hideLoading()))
+            // .catch((e)=>{
+            //     console.warn('Error in handleSaveAnswer: ', e)
+            //     dispatch(addQuestion(question))
+            //     alert('There was an error saving that answer. Try Again')
+            // })
     }
 }

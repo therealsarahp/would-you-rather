@@ -1,4 +1,4 @@
-import { RECEIVE_DATA, ANSWER_QUESTION } from "../actions/shared";
+import { RECEIVE_DATA, ANSWER_QUESTION, ADD_QUESTION } from "../actions/shared";
 
 export default function users(state=[], action){
     switch(action.type){
@@ -17,6 +17,17 @@ export default function users(state=[], action){
                         [action.id]: action.answer
                     }
                 }
+            }
+
+        case ADD_QUESTION:
+            const { question } = action
+            return{
+                ...state,
+                [action.question.author]: {
+                    ...state[action.question.author],
+                    questions: state[action.question.author].questions.concat([question.id])
+                }
+
             }
         default :
             return state
