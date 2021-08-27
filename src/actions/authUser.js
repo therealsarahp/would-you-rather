@@ -5,3 +5,9 @@ export function setAuthUser (id){
         type: SET_AUTH_USER, id
     }
 }
+
+export function handleSetAuthUser(id){
+    return(dispatch) => {
+        dispatch(setAuthUser(id))
+    }
+}

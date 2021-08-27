@@ -6,7 +6,7 @@ import Login from "./Login";
 import Dashboard from "./Dashboard";
 import QuestionPage from "./QuestionPage";
 import NewQuestion from "./NewQuestion";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
 import Nav from "./Nav";
 import Leaderboard from "./Leaderboard";
 
@@ -27,7 +27,9 @@ class App extends Component {
             <LoadingBar />
                 <Nav />
             {this.props.loading === true
-            ? null :
+            ? null
+                // <Redirect to='/login' component={Login} />
+                :
                 <div className="container">
                     <Route path='/' exact component={Dashboard} />
                     <Route path='/questions/:id' component={QuestionPage}/>

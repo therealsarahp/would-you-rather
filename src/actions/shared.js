@@ -1,6 +1,7 @@
-import { setAuthUser } from "./authUser";
+import {handleSetAuthUser, setAuthUser} from "./authUser";
 import { showLoading, hideLoading } from "react-redux-loading";
 import {_getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer} from "../utils/_DATA";
+import authUser from "../reducers/authUser";
 
 export const RECEIVE_DATA = "RECEIVE_DATA";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
@@ -29,7 +30,7 @@ function addQuestion(question){
     }
 }
 
-const AUTH_USERID = 'sarahedo';
+// const AUTH_USERID = 'sarahedo';
 
 export function handleInitialData(){
     return(dispatch)=> {
@@ -38,7 +39,7 @@ export function handleInitialData(){
             _getUsers(), _getQuestions()
         ]).then(([users, questions])=> {
             dispatch(receiveData(users, questions))
-            dispatch(setAuthUser(AUTH_USERID))
+            dispatch(setAuthUser('sarahedo'))
             dispatch(hideLoading())
         })
     }

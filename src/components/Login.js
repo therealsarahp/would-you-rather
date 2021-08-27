@@ -1,15 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {handleSetAuthUser, setAuthUser} from "../actions/authUser";
 
 class Login extends Component{
 
     state={
-        user: {}
+        user: ''
     }
 
     handleSelect = (e) => {
         e.preventDefault();
 
+        this.setState(()=>({
+            user: e.target.value
+        }))
+        console.log("handleSelect", e.target.value)
+
+    }
+
+    handleSubmit= (e) => {
+        e.preventDefault();
+
+        const { dispatch } = this.props
+        const { user } = this.state
+
+        dispatch(handleSetAuthUser(user)
+        )
+        console.log("handlesetAuthUser dispatched", user)
+        this.setState(()=>({
+            user: ''
+        }))
     }
 
 
@@ -25,18 +45,25 @@ class Login extends Component{
                 <div className="select-user">
                     <p> Welcome to Would You Rather!</p>
                     <p>  Please sign in. </p>
-                <label htmlFor="user-select"
-                        className="select-label">Choose User: </label>
-                <select
-                    id="user-select"
-                    onChange={this.handleSelect}>
-                {usersArr.map((user, index)=> (
-                        <option
-                            key={index}
-                            value={user}
-                        >{user.id}</option>
-                        ))}
-                    </select>
+                    <form>
+                        <label htmlFor="user-select"
+                                className="select-label">Choose User: </label>
+                        <select
+                            id="user-select"
+                            onChange={this.handleSelect}>
+                        {usersArr.map((user, index)=> (
+                                <option
+                                    key={index}
+                                    value={user.id}
+                                >{user.id}</option>
+                                ))}
+                            </select>
+                        <button
+                            onSubmit={this.handleSubmit}>
+                            SUBMIT
+                        </button>
+
+                    </form>
                 </div>
             </div>
         );
