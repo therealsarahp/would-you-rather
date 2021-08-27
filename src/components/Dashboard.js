@@ -29,19 +29,21 @@ class Dashboard extends Component{
         : showingQuestions = [0]
 
         return(
-            <div style={{ border: "1px solid black"}}>
+            <div className="dash">
                 <h3 className='center'>Dashboard</h3>
-                <button
+                <div className="center" >
+                    <button
                     value="votes"
                     onClick={this.handleClick}
-                    className='dash-btn center'
+                    className='dash-btn left'
                 >Answered</button>
-                <button
-                    value="noVotes"
-                    onClick={this.handleClick}
-                    className='dash-btn center'
-                 >Unanswered</button>
-
+                    <button
+                        value="noVotes"
+                        onClick={this.handleClick}
+                        className='dash-btn right'
+                    >Unanswered</button>
+                </div>
+                <br/>
                 <ul className='question-list'>
                     {showingQuestions.map((question, index)=>(
                         <li key={index}>

@@ -24,11 +24,11 @@ class Question extends Component{
             <div className="question-details">
                 <span>{users[author].name} Asks...</span>
                 <h3> WOULD YOU RATHER...</h3>
-               <p className="center">{optionOne.text} OR {optionTwo.text}</p>
-
-                {/*//todo: add optional values and displays for "no-votes" vs. "votes";
-                if(optionOne.votes.length > 0 && optionTwo.votes.length > 0){
-                 etc..... */}
+                <div className="question-text">
+                    <p className="left">{optionOne.text}</p>
+                    <span><h3 className="center">OR</h3></span>
+                    <p className="right">{optionTwo.text}</p>
+                </div>
             </div>
             </Link>
         )

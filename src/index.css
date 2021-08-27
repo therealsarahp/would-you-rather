@@ -47,26 +47,40 @@ li {
 }
 
 /*dashboard and question componenet*/
+.dash{
+    border: 1px solid #dad7d7;
+    padding: 10px;
+}
 
-.dash-btn{
-    border: 1px solid black;
-    padding: 0.25em 0.75em;
+.dash-btn {
+    border: none;
     background-color: transparent;
     font-family: inherit;
     font-size: 20px;
     cursor: pointer;
-    margin: 50px;
     display: inline-block;
     align-items: center;
     justify-content: center;
     min-height: 44px;
+    text-align: center;
+
+}
+
+.left{
+    float: left;
+
+}
+
+.right{
+    float: right;
 }
 
 .question-list {
     width: 100%;
-    margin: 0;
+    margin: 15px;
     padding: 0;
     list-style-type: none;
+
 }
 
 .question-list-item {
@@ -81,6 +95,7 @@ li {
 
 .question-details {
     padding-left: 20px;
+
     border-left: 1px solid #eee;
 
     flex: 1;
@@ -104,6 +119,9 @@ li {
     font-size: 15px;
 }
 
+.question-text{
+    display: inline-block;
+}
 /*questionPage*/
 
 .options{
