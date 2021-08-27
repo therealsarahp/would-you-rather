@@ -20,7 +20,7 @@ export default function Nav(){
             <NavLink to='/leaderboard' activeClassName='active'>
                     LeaderBoard
             </NavLink>
-        </li>
+            </li>
             <li>
                 <NavLink to='/login' activeClassName='active'>
                     Logout

@@ -35,12 +35,12 @@ class Question extends Component{
     }
 }
 
-function mapStateToProps({ authedUser, users, questions }, { id }){
+function mapStateToProps({ authUser, users, questions }, { id }){
     const question = questions[id];
 
     return{
         users,
-        authedUser,
+        authUser,
         question : question ? question : null
             // ? formatQuestion(question)
             // : null
