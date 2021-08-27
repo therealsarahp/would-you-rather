@@ -17,12 +17,12 @@ export default function Nav(){
                 </NavLink>
             </li>
             <li>
-            <NavLink to='/add' activeClassName='active'>
+            <NavLink to='/leaderboard' activeClassName='active'>
                     LeaderBoard
             </NavLink>
         </li>
             <li>
-                <NavLink to='/new' activeClassName='active'>
+                <NavLink to='/login' activeClassName='active'>
                     Logout
                 </NavLink>
             </li>
