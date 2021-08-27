@@ -28,7 +28,11 @@ class NewQuestion extends Component{
         dispatch(handleAddQuestion({
             optionOne, optionTwo, authUser
         }))
-        console.log("handleSubmit is working")
+
+        this.setState(()=> ({
+            optionOne: '',
+            optionTwo: '',
+        }))
     }
 
     render() {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { formatQuestion } from "../utils/_DATA";
 import { formatDate } from "../utils/_DATA";
+import {Link} from "react-router-dom";
 
 class Question extends Component{
     render() {
@@ -13,7 +14,7 @@ class Question extends Component{
 
         const { timestamp, author, optionOne, optionTwo } = question
         return(
-            <div  className="question-list-item">
+            <Link to={`/questions/${id}`}  className="question-list-item">
                 {/*{formatDate(timestamp)}*/}
                 <img
                     className='avatar'
@@ -29,7 +30,7 @@ class Question extends Component{
                 if(optionOne.votes.length > 0 && optionTwo.votes.length > 0){
                  etc..... */}
             </div>
-            </div>
+            </Link>
         )
     }
 }

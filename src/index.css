@@ -1,3 +1,5 @@
+
+/*//general */
 body {
     margin: 0;
     padding: 0;
@@ -30,6 +32,7 @@ li {
     text-decoration: none;
 }
 
+/*dashboard and question componenet*/
 
 .question-list {
     width: 100%;
@@ -47,13 +50,6 @@ li {
 
 }
 
-/*@media (min-width: 600px) {*/
-/*    .question-list-item {*/
-/*        margin: 20px;*/
-/*        border: 1px solid #d5d8df;*/
-/*        border-radius: 4px;*/
-/*    }*/
-/*}*/
 
 .avatar {
     /*height: 50px;*/
@@ -92,6 +88,8 @@ li {
     color: #969696;
     font-size: 15px;
 }
+
+/*questionPage*/
 
 .options{
     text-align: center;
@@ -176,6 +174,8 @@ li {
     color: white;
 }
 
+/*NewQuestion*/
+
 .new-question{
     width: 50%;
     max-width: 590px;
@@ -191,4 +191,21 @@ li {
     font-size: 15px;
     height: 100px;
     display: inline;
+}
+
+/*Nav*/
+
+.active {
+    font-weight: bold;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+
+.nav li:first-child {
+    padding-left: 0;
 }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading";
@@ -6,6 +6,8 @@ import LoadingBar from "react-redux-loading";
 import Dashboard from "./Dashboard";
 import QuestionPage from "./QuestionPage";
 import NewQuestion from "./NewQuestion";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Nav from "./Nav";
 
 
 
@@ -19,14 +21,21 @@ class App extends Component {
 
     render() {
     return (
+        <Router>
         <div className="App">
             <LoadingBar />
+                <Nav />
             {this.props.loading === true
-            ? null : <div className="container">
-                    <NewQuestion />
+            ? null :
+                <div className="container">
+                    <Route path='/' component={Dashboard} />
+                    <Route path='/questions/:id' component={QuestionPage}/>
+                    <Route path='/add' component={NewQuestion}/>
+                    {/*<Route path='/leaderboard' component={Leaderboard}/>*/}
 
             </div>}
         </div>
+        </Router>
     );
   }
 }
