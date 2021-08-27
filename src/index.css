@@ -68,11 +68,13 @@ li {
 
 .left{
     float: left;
+    display: inline-block;
 
 }
 
 .right{
     float: right;
+    display: inline-block;
 }
 
 .question-list {
@@ -120,7 +122,7 @@ li {
 }
 
 .question-text{
-    display: inline-block;
+    text-align: center;
 }
 /*questionPage*/
 
@@ -316,5 +318,31 @@ textarea {
 .score{
     float: right;
     padding: 15px;
+}
+
+/*login page*/
+
+.login-page{
+    border: 1px solid #dad7d7;
+    text-align: center;
+    margin: 10px;
+}
+
+.select-label{
+    font-size: 24px;
+    padding: 5px; 
+}
+
+#user-select{
+    font-size: 24px;
+    border-radius: 5px;
+    padding: 0.25em 0.75em
+}
+
+.select-user{
+    border: 1px solid #dad7d7;
+    font-size: 35px;
+    margin: 15px;
+    padding-bottom: 50px;
 }
 

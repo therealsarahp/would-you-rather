@@ -18,9 +18,9 @@ class Leaderboard extends Component{
                 <ul>
                 {usersArr.map((user, index)=>(
                     <li key={index} className="leaders">
-                        {index === 0 && <GiLaurelsTrophy style={{ color: "#C9B037" , 'font-size': "45px" }} />}
-                        {index === 1 && <GiLaurelsTrophy style={{ color: "#B4B4B4", 'font-size': "35px" }} />}
-                        {index === 2 && <GiLaurelsTrophy style={{ color: "#6A3805", 'font-size': "25px" }} />}
+                        {index === 0 && <GiLaurelsTrophy style={{ color: "#C9B037" , fontSize: "45px" }} />}
+                        {index === 1 && <GiLaurelsTrophy style={{ color: "#B4B4B4", fontSize: "35px" }} />}
+                        {index === 2 && <GiLaurelsTrophy style={{ color: "#6A3805", fontSize: "25px" }} />}
                         <img
                             className='avatar'
                             src={user.avatarURL}
