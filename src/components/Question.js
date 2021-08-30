@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { formatQuestion } from "../utils/_DATA";
-import { formatDate } from "../utils/_DATA";
 import {Link} from "react-router-dom";
 
 class Question extends Component{
@@ -12,10 +11,10 @@ class Question extends Component{
             return <p>No Questions To Show</p>
         }
 
-        const { timestamp, author, optionOne, optionTwo } = question
+        const { author, optionOne, optionTwo } = question
         return(
             <Link to={`/questions/${id}`}  className="question-list-item">
-                {/*{formatDate(timestamp)}*/}
+
                 <img
                     className='avatar'
                     src={users[author].avatarURL}

@@ -6,8 +6,8 @@ export function setAuthUser (id){
     }
 }
 
-export function handleSetAuthUser(id){
+export function handleSetAuthUser(user){
     return(dispatch) => {
-        dispatch(setAuthUser(id))
+        dispatch(setAuthUser(user))
     }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {handleSetAuthUser, setAuthUser} from "../actions/authUser";
+import {handleSetAuthUser} from "../actions/authUser";
 
 class Login extends Component{
 
@@ -23,10 +23,10 @@ class Login extends Component{
 
         const { dispatch } = this.props
         const { user } = this.state
+        console.log("handlesetAuthUser dispatched", user)
 
         dispatch(handleSetAuthUser(user)
         )
-        console.log("handlesetAuthUser dispatched", user)
         this.setState(()=>({
             user: ''
         }))
@@ -45,7 +45,7 @@ class Login extends Component{
                 <div className="select-user">
                     <p> Welcome to Would You Rather!</p>
                     <p>  Please sign in. </p>
-                    <form>
+                    <form onSubmit={this.handleSubmit} >
                         <label htmlFor="user-select"
                                 className="select-label">Choose User: </label>
                         <select
@@ -59,7 +59,7 @@ class Login extends Component{
                                 ))}
                             </select>
                         <button
-                            onSubmit={this.handleSubmit}>
+                            >
                             SUBMIT
                         </button>
 

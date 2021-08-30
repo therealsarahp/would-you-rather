@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
 import LoadingBar from "react-redux-loading";
@@ -26,9 +26,12 @@ class App extends Component {
         <div className="App">
             <LoadingBar />
                 <Nav />
-            {this.props.loading === true
-            ? null
+            {this.props.authUser === null
+            ?
+                // <Route to='/login' component={Login}>
                 // <Redirect to='/login' component={Login} />
+                // </Route>
+                <Route to='/login' component={Login} />
                 :
                 <div className="container">
                     <Route path='/' exact component={Dashboard} />
@@ -46,7 +49,7 @@ class App extends Component {
 
 function mapStateToProps( { authUser }){
     return {
-        loading: authUser === null
+        authUser
     }
 }
 

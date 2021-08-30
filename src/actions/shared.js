@@ -1,7 +1,7 @@
-import {handleSetAuthUser, setAuthUser} from "./authUser";
+// import {handleSetAuthUser, setAuthUser} from "./authUser";
 import { showLoading, hideLoading } from "react-redux-loading";
 import {_getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer} from "../utils/_DATA";
-import authUser from "../reducers/authUser";
+
 
 export const RECEIVE_DATA = "RECEIVE_DATA";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
@@ -39,7 +39,7 @@ export function handleInitialData(){
             _getUsers(), _getQuestions()
         ]).then(([users, questions])=> {
             dispatch(receiveData(users, questions))
-            dispatch(setAuthUser('sarahedo'))
+            // dispatch(setAuthUser('sarahedo'))
             dispatch(hideLoading())
         })
     }
@@ -74,10 +74,5 @@ export function handleAddQuestion(question){
         )
             .then((question)=> dispatch(addQuestion(question)))
             .then(dispatch(hideLoading()))
-            // .catch((e)=>{
-            //     console.warn('Error in handleSaveAnswer: ', e)
-            //     dispatch(addQuestion(question))
-            //     alert('There was an error saving that answer. Try Again')
-            // })
     }
 }
