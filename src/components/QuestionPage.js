@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Question from "./Question";
 import {handleAnswerQuestion} from "../actions/shared";
 import { TiStarburst } from 'react-icons/all';
+import {Redirect} from "react-router-dom";
 
 
 class QuestionPage extends Component{
@@ -39,7 +40,13 @@ class QuestionPage extends Component{
     }
 
     render() {
-        const { id, question, authUser, users } = this.props
+        const { question } = this.props
+
+        if(question === undefined){
+            return <Redirect to='/404' />
+        }
+
+        const { id, authUser, users } = this.props
         const { optionOne, optionTwo } = question
 
         const optionOneVotes = optionOne.votes;
@@ -52,8 +59,6 @@ class QuestionPage extends Component{
         }
 
         const yourVote = users[authUser].answers[id];
-        console.log(yourVote)
-
 
         return(
             <div className="question-page">
@@ -116,9 +121,6 @@ function mapStateToProps({ authUser, users, questions }, props){
         authUser,
         id,
         question
-        // question : question ? question : null
-        // ? formatQuestion(question)
-        // : null
     }
 
 
