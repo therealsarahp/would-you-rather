@@ -37,6 +37,8 @@ class Login extends Component{
 
 
     render() {
+
+
         const{ users } = this.props
 
         const usersArr = Object.values(users)
@@ -80,9 +82,10 @@ class Login extends Component{
     }
 }
 
-function mapStateToProps({ users }){
+function mapStateToProps({ users, authUser }){
         return {
-            users
+            users,
+            authUser : authUser ? authUser : null
         }
 }
 
