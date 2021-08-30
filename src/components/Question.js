@@ -5,7 +5,7 @@ import {Link, Redirect} from "react-router-dom";
 
 class Question extends Component{
     render() {
-        const { id, question, users, invalid} = this.props
+        const { id, question, users } = this.props
 
         if(question === null){
             return <p>No Questions To Show</p>
@@ -13,9 +13,6 @@ class Question extends Component{
 
         const { author, optionOne, optionTwo } = question
 
-        // if(invalid){
-        //     return <Redirect to='/404'/>
-        // }
         return(
             <Link to={`/questions/${id}`}  className="question-list-item">
 
@@ -42,20 +39,11 @@ function mapStateToProps({ authUser, users, questions }, { id } ){
 
     const question = questions[id];
 
-    if (question[id] === undefined){
         return {
             users,
             authUser,
-            question : question ? question : null,
-            invalid: true
+            question: question ? question : null,
         }
-    } else{
-        return {
-            users,
-            authUser,
-            question : question ? question : null,
-            invalid: false}
-    }
 
 }
 
