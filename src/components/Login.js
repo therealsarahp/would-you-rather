@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {handleSetAuthUser} from "../actions/authUser";
+import {Redirect} from "react-router-dom";
 
 class Login extends Component{
 
     state={
-        user: ''
+        user: '',
+        toHome: false,
     }
 
     handleSelect = (e) => {
@@ -28,7 +30,8 @@ class Login extends Component{
         dispatch(handleSetAuthUser(user)
         )
         this.setState(()=>({
-            user: ''
+            user: '',
+            toHome: true,
         }))
     }
 
@@ -37,6 +40,10 @@ class Login extends Component{
         const{ users } = this.props
 
         const usersArr = Object.values(users)
+
+        if(this.state.toHome === true){
+            return <Redirect to='/' />
+        }
 
         return (
             <div className="login-page">
@@ -50,7 +57,10 @@ class Login extends Component{
                                 className="select-label">Choose User: </label>
                         <select
                             id="user-select"
-                            onChange={this.handleSelect}>
+                            onChange={this.handleSelect}
+                            value={this.state.authUser}>
+                            <option
+                                value="null">Select...</option>
                         {usersArr.map((user, index)=> (
                                 <option
                                     key={index}

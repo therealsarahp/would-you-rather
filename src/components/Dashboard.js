@@ -6,6 +6,7 @@ import Question from "./Question";
 class Dashboard extends Component{
     state={
         value: 'noVotes',
+
     }
 
     handleClick=(e)=>{
@@ -18,15 +19,22 @@ class Dashboard extends Component{
 
 
     render() {
-        const { questions } = this.props;
+        const { questions, users, authUser } = this.props;
 
-        let showingQuestions = this.state.value === "noVotes" ?
-            Object.values(questions).filter((question) => question.optionOne.votes.length === 0 && question.optionTwo.votes.length === 0)
-            : Object.values(questions).filter((question)=>question.optionOne.votes.length >0 || question.optionTwo.votes.length >0)
+        let showingQuestions = Object.keys(questions)
+        let answeredQs = Object.keys(users[authUser].answers)
+
+        this.state.value === "noVotes" ?
+            answeredQs.forEach((answer)=>
+                    showingQuestions.splice(showingQuestions.indexOf(answer), 1))
+            : showingQuestions = showingQuestions.filter((questionId)=>
+                answeredQs.includes(questionId))
 
         showingQuestions.length > 0
-        ? showingQuestions.sort((a,b)=> b.timestamp - a.timestamp)
+        ? showingQuestions.sort((a,b)=> questions[b].timestamp - questions[a].timestamp)
         : showingQuestions = [0]
+
+
 
         return(
             <div className="dash">
@@ -36,18 +44,20 @@ class Dashboard extends Component{
                     value="votes"
                     onClick={this.handleClick}
                     className='dash-btn left'
+                    disabled = {this.state.value === "votes"}
                 >Answered</button>
                     <button
                         value="noVotes"
                         onClick={this.handleClick}
                         className='dash-btn right'
+                        disabled={this.state.value === "noVotes"}
                     >Unanswered</button>
                 </div>
                 <br/>
                 <ul className='question-list'>
                     {showingQuestions.map((question, index)=>(
                         <li key={index}>
-                            <Question id={question.id}/>
+                            <Question id={question}/>
                         </li>
                     ))}
 
@@ -64,9 +74,8 @@ function mapStateToProps({ questions, authUser, users }){
     return{
         authUser,
         questions,
-        // users,
-        // questionIds: Object.keys(questions)
-        //     .sort((a,b)=> questions[b].timestamp - questions[a].timestamp)
+        users,
+
 
     }
 }

@@ -31,7 +31,7 @@ class Nav extends Component{
                         <li>
                                 <span>Hello, {this.props.authUser}  </span>
                                         <NavLink to='/login' activeClassName='active'>
-                                            <span>      Logout</span>
+                                            <span>      Login</span>
                                         </NavLink>
                         </li>
                     </div>

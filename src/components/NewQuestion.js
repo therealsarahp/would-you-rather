@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 import {handleAddQuestion} from "../actions/shared";
+import {Redirect} from "react-router-dom";
 
 class NewQuestion extends Component{
     state={
         optionOne: "",
         optionTwo: "",
+        toPage: false,
     }
 
     handleChange=(e)=>{
@@ -32,11 +34,17 @@ class NewQuestion extends Component{
         this.setState(()=> ({
             optionOne: '',
             optionTwo: '',
+            toPage: true,
         }))
     }
 
     render() {
-        const { optionOne, optionTwo } = this.state
+        const { optionOne, optionTwo, toPage } = this.state
+
+        if(toPage === true) {
+            return <Redirect to='/'/>
+        }
+
         return(
             <div className="new-question-page">
                 <h3 className="center">Ask A New Question</h3>
@@ -54,7 +62,7 @@ class NewQuestion extends Component{
                         />
                     </div>
                     <div className="optionTwoText">
-                        <label for="text2">Option Two</label>
+                        <label htmlFor="text2">Option Two</label>
                         <textarea
                             placeholder="Would you... "
                             value={optionTwo}
