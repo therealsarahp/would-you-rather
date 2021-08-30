@@ -35,18 +35,19 @@ class App extends Component {
                 // </Route>
                 <Route to='/login' component={Login} />
                 :
-                <Switch>
                 <div className="container">
-                    <Route path='/' exact component={Dashboard} />
-                    <Route path='/questions/:id' component={QuestionPage}/>
-                    <Route path='/add' component={NewQuestion}/>
-                    <Route path='/leaderboard' component={Leaderboard}/>
-                    <Route path='/login' component={Login} />
-                    <Route path='/logout' component={Logout} />
-                    <Route path='/404' component={NotFound} />
-                    {/*<Route component={NotFound} />*/}
+                    <Switch>
+                        <Route path='/' exact component={Dashboard} />
+                        <Route path='/questions/:id' component={QuestionPage}/>
+                        <Route path='/add' component={NewQuestion}/>
+                        <Route path='/leaderboard' component={Leaderboard}/>
+                        <Route path='/login' component={Login} />
+                        <Route path='/logout' component={Logout} />
+                        <Route path='/404' component={NotFound} />
+                        <Route component={NotFound} />
+                    </Switch>
                 </div>
-                </Switch>}
+                }
         </div>
         </Router>
     );
