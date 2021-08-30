@@ -6,9 +6,10 @@ import Login from "./Login";
 import Dashboard from "./Dashboard";
 import QuestionPage from "./QuestionPage";
 import NewQuestion from "./NewQuestion";
-import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import Nav from "./Nav";
 import Leaderboard from "./Leaderboard";
+import NotFound from "./NotFound";
 
 
 
@@ -33,14 +34,17 @@ class App extends Component {
                 // </Route>
                 <Route to='/login' component={Login} />
                 :
+                <Switch>
                 <div className="container">
                     <Route path='/' exact component={Dashboard} />
                     <Route path='/questions/:id' component={QuestionPage}/>
                     <Route path='/add' component={NewQuestion}/>
                     <Route path='/leaderboard' component={Leaderboard}/>
                     <Route path='/login' component={Login} />
-
-            </div>}
+                    <Route path='/404' component={NotFound} />
+                    {/*<Route component={NotFound} />*/}
+                </div>
+                </Switch>}
         </div>
         </Router>
     );

@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { formatQuestion } from "../utils/_DATA";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Question extends Component{
     render() {
-        const { id, question, users} = this.props
+        const { id, question, users, invalid} = this.props
 
         if(question === null){
             return <p>No Questions To Show</p>
         }
 
         const { author, optionOne, optionTwo } = question
+
+        // if(invalid){
+        //     return <Redirect to='/404'/>
+        // }
         return(
             <Link to={`/questions/${id}`}  className="question-list-item">
 
@@ -34,17 +38,24 @@ class Question extends Component{
     }
 }
 
-function mapStateToProps({ authUser, users, questions }, { id }){
+function mapStateToProps({ authUser, users, questions }, { id } ){
+
     const question = questions[id];
 
-    return{
-        users,
-        authUser,
-        question : question ? question : null
-            // ? formatQuestion(question)
-            // : null
+    if (question[id] === undefined){
+        return {
+            users,
+            authUser,
+            question : question ? question : null,
+            invalid: true
+        }
+    } else{
+        return {
+            users,
+            authUser,
+            question : question ? question : null,
+            invalid: false}
     }
-
 
 }
 
